@@ -3,7 +3,7 @@
 #################################################################
 [R3BPspxMappedPar]
 //-------------------------------------------------------------
-R3BPspxMappedDetectors: Int_t 2
+R3BPspxMappedDetectors: Int_t 4
 R3BPspxMappedStripsPerDetector: Int_t \ 
-32  32
+32  32  32  32
 #################################################
