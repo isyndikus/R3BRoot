@@ -9,7 +9,7 @@
 #define N_PLANE_MAX_TOFD 4
 #define N_PADDLE_MAX_TOFD 50
 #define N_PADDLE_MAX_PTOF 100
-#define N_PSPX 1 // max value 4 at the moment
+#define N_PSPX 4 // max value 4 at the moment
 #define N_STRIPS_PSPX 32
 
 #include "FairTask.h"
