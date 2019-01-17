@@ -78,7 +78,8 @@ InitStatus R3BPspxMapped2Precal::Init()
         { // strips
             gain[i][j] = fPrecalPar->GetPspxParGain().At(start_detector + 3 + j * 2);
         }
-        start_detector = start_detector + 2 + 2 * fPrecalPar->GetPspxParStrip().At(i);
+        //start_detector = start_detector + 2 + 2 * fPrecalPar->GetPspxParStrip().At(i);
+        start_detector = start_detector + 2 + 2 * gain[i].size();
     }
     LOG(INFO) << "R3BPspxMapped2Precal :: Init() " << FairLogger::endl;
     for (Int_t i = 0; i < fPrecalPar->GetPspxParDetector(); i++)
@@ -109,14 +110,7 @@ InitStatus R3BPspxMapped2Precal::Init()
         { // channels
             energythreshold[i][j] = fPrecalPar->GetPspxParEnergyThreshold().At(start_detector + 3 + j * 2);
         }
-        if (fPrecalPar->GetPspxParOrientation().At(i) == 1 || fPrecalPar->GetPspxParOrientation().At(i) == 2)
-        { // cathode cannel available
-            start_detector = start_detector + 2 + 2 * 2 * fPrecalPar->GetPspxParStrip().At(i) + 2;
-        }
-        else if (fPrecalPar->GetPspxParOrientation().At(i) == 3)
-        {
-            start_detector = start_detector + 2 + 2 * 4 * fPrecalPar->GetPspxParStrip().At(i);
-        }
+	start_detector=start_detector + 2 + 2 * energythreshold[i].size();
     }
     // LOG(INFO) << "R3BPspxMapped2Precal :: Init() " << FairLogger::endl;
     for (Int_t i = 0; i < fPrecalPar->GetPspxParDetector(); i++)
