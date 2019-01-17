@@ -68,7 +68,7 @@ InitStatus R3BPspxPrecal2Cal::Init()
             gain[i].resize(fCalPar->GetPspxParStrip().At(i));
         }
         else if (fCalPar->GetPspxParOrientation().At(i) == 3)
-        { // strips on 2 side1
+        { // strips on 2 sides
             gain[i].resize(fCalPar->GetPspxParStrip().At(i) * 2);
         }
     }
@@ -146,7 +146,7 @@ void R3BPspxPrecal2Cal::Exec(Option_t* option)
 {
     /**
      * Does the conversion from Precal to Cal level. It is called for every event.
-     * Applies (strip specific) gains to the energy entries of every strip. This is necessary 
+     * Applies (strip specific) gains to the energy entries of every strip. This is necessary
      * for energy calibration.
      */
 

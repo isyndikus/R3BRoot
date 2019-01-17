@@ -18,7 +18,7 @@ class R3BPspxHitPar;
  * Class to convert Cal data to Hit data for PSPX detector data.
  * This means: Calculation of total deposited energy, uv (internal) and xy (external) coordinates for every event.
  * For the xy coordinates qualitiy factors (=sigma) is given.
- * Additionally, the multiplicity of each event for the whole detector, the x and the y side is determined.
+ * Additionally, the multiplicity of each event for the whole detector, the x, and the y side is determined.
  * The total deposited energy is only calculated for an energy readout (X1 type detector) or the energy on the front and
  * on the back of the detector are the same within a certain uncertainty (X5 type detector).
  * @author Ina Syndikus
@@ -49,7 +49,7 @@ class R3BPspxCal2Hit : public FairTask
     TClonesArray* fCalItems; /**< Array holding input (Cal) data */
     TClonesArray* fHitItems; /**< Array holding output (Hit) data */
 
-    R3BPspxHitPar* fHitPar; /**< Parameter instance holding slopes and offsets */
+    R3BPspxHitPar* fHitPar; /**< Parameter instance holding slopes, offsets and signs */
     std::vector<std::vector<Float_t>> offset;
     std::vector<std::vector<Float_t>> slope;
     std::vector<Short_t> sign_pos_x;
@@ -63,7 +63,7 @@ class R3BPspxCal2Hit : public FairTask
     // void WriteHistos();
 
   public:
-    ClassDef(R3BPspxCal2Hit, 2)
+    ClassDef(R3BPspxCal2Hit, 3)
 };
 
 #endif
