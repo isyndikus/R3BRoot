@@ -30,7 +30,11 @@ class R3BPspxCal2Hit : public FairTask
   public:
     /** Default Constructor **/
     R3BPspxCal2Hit();
-    /** Standard Constructor **/
+    /**
+     * Standard Constructor
+     * @param range  Parameter to check whether energy recorded on front and back are the same, in case that no cathode
+     * energy is available. Sets the rangeE private variable.
+     **/
     R3BPspxCal2Hit(const char* name, Int_t iVerbose, Float_t range);
     /** Destructor **/
     virtual ~R3BPspxCal2Hit();
@@ -57,6 +61,9 @@ class R3BPspxCal2Hit : public FairTask
     std::vector<Short_t> sign_strip_x;
     std::vector<Short_t> sign_strip_y;
 
+    /** Parameter to check whether energy recorded on front and back are the same, in case that no cathode energy is
+     * available. A value of 0 corresponds to the energy have to be exactly the same, a value of 0.1 corresponds to a
+     * difference of up to 10%, etc. **/
     Float_t rangeE;
 
     // void CreateHistos();
